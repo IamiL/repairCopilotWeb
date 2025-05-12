@@ -1,0 +1,78 @@
+/*.App {*/
+/*  height: 100vh;*/
+/*  width: 100%;*/
+/*  max-width: 768px;*/
+/*  margin: 0 auto;*/
+/*  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.App {*/
+/*  height: 100vh;*/
+/*  width: 100%; !* Занимает всю ширину экрана *!*/
+/*  max-width: 100%; !* Убрано ограничение на 768px *!*/
+/*  margin: 0 auto; !* Центрирование для содержимого *!*/
+/*  box-shadow: none; !* Уберите тень, если она не требуется *!*/
+/*}*/
+
+:root {
+  --primary-color: #4eac6d;
+  --bg-color: #f5f7fb;
+  --text-color: #343a40;
+  --input-bg: #ffffff;
+  --border-color: #e6e6e6;
+  --light-own-message-bg: #e3f2fd;
+  --light-other-message-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary-color: #348a54;
+  --bg-color: #121212;
+  --text-color: #f5f7fb;
+  --input-bg: #1e1e1e;
+  --border-color: #2c2c2c;
+  --light-own-message-bg: #1a2238;
+  --light-other-message-bg: #262b32;
+}
+
+/* Общие стили */
+.App {
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Меню */
+.menu {
+  height: 60px; /* Высота меню, как у поля ввода */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.theme-toggle-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.theme-toggle-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
