@@ -292,3 +292,83 @@ body {
         transform: rotate(360deg);
     }
 }
+
+/* Кнопка завершения чата */
+.end-chat-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.end-chat-button {
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.end-chat-button:hover {
+    background-color: #e63946;
+}
+
+/* Кнопка нового чата */
+.new-chat-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.new-chat-button {
+    padding: 10px 20px;
+    background-color: #4eac6d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.new-chat-button:hover {
+    background-color: #348a54;
+}
+
+/* Поле ввода и кнопка отправки */
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.input-field:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+.send-button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.send-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}

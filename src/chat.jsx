@@ -4,6 +4,9 @@ import './Chat.css';
 
 const Chat = () => {
     const [messages, setMessages] = useState([]); // Хранение сообщений
+    const [inputMessage, setInputMessage] = useState(''); // Текст сообщения
+    const [isChatEnded, setIsChatEnded] = useState(false); // Флаг завершения чата
+
     const [newMessage, setNewMessage] = useState(''); // Для ввода сообщения
     const [isSending, setIsSending] = useState(false); // Отслеживание отправки сообщения
     const [isLoading, setIsLoading] = useState(true); // Загрузка данных из API
@@ -65,8 +68,33 @@ const Chat = () => {
         scrollToBottom();
     }, [messages]);
 
+    const handleEndChat = async () => {
+        // Блокируем ввод и кнопку для отправки сообщений
+        setMessages([...messages, { id: Date.now(), text: 'Завершить диалог', sender: 'user' }]);
+        setIsChatEnded(true);
+
+        try {
+            // DELETE запрос
+            const response = await axios.delete('/api/chat');
+            if (response.status === 200) {
+                const botReply = response.data.message || 'Чат завершён.';
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { id: Date.now(), text: botReply, sender: 'bot' },
+                ]);
+            }
+        } catch (error) {
+            console.error('Ошибка при завершении чата:', error);
+        }
+    };
+
+
     // Обработка события "Новый чат"
     const handleNewChat = async () => {
+        setMessages([]);
+        setIsChatEnded(false);
+        setInputMessage('');
+
         try {
             setIsLoading(true); // Отображаем индикатор загрузки
             setError(null); // Сбрасываем прошлые ошибки
@@ -181,6 +209,13 @@ const Chat = () => {
                 </div>
             ) : (
                 <>
+                    {messages.length > 0 && !isChatEnded && (
+                        <div className="end-chat-button-container">
+                            <button className="end-chat-button" onClick={handleEndChat}>
+                                Завершить чат
+                            </button>
+                        </div>
+                    )}
                     {/* Отображение сообщений */}
                     <div className="messages-container">
                         {messages.map((message, index) => (
@@ -196,6 +231,14 @@ const Chat = () => {
                         ))}
                         <div ref={messagesEndRef} />
                     </div>
+
+                    {isChatEnded && (
+                        <div className="new-chat-button-container">
+                            <button className="new-chat-button" onClick={handleNewChat}>
+                                Новый чат
+                            </button>
+                        </div>
+                    )}
 
                     {/* Поле ввода сообщения */}
                     <form className="message-input-container" onSubmit={handleSendMessage}>
