@@ -82,6 +82,12 @@ const Chat = () => {
                     ...prevMessages,
                     { id: Date.now(), body: botReply, isBot: true },
                 ]);
+                const container = document.getElementById('message-input-container');
+                if (container) {
+                    container.parentNode.removeChild(container);
+                } else {
+                    console.warn("Элемент с id 'message-input-container' не найден.");
+                }
             }
         } catch (error) {
             console.error('Ошибка при завершении чата:', error);
@@ -240,7 +246,7 @@ const Chat = () => {
                         </div>
                     )}
                     {/* Поле ввода сообщения */}
-                    <form className="message-input-container" onSubmit={handleSendMessage}>
+                    <form className="message-input-container" onSubmit={handleSendMessage} id='message-input-container'>
                         <input
                             type="text"
                             className="message-input"
