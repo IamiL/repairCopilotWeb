@@ -108,16 +108,27 @@ const Chat = () => {
 
             if (response.status === 200) {
                 console.log('запрос на отправку сообщения успешен, ответ response.data.body: ', response.data.body)
+                    if (response.data.body.length < 2) {
+                        const newMsg = {
+                            id: messages.length + 1,
+                            body: "Я вас не понял, уточните вопрос.",
+                            time: `${hours}:${minutes}`,
+                            isBot: true,
+                        }
 
-                const newMsg = {
-                    id: messages.length + 1,
-                    body: response.data.body,
-                    time: `${hours}:${minutes}`,
-                    isBot: true,
-                };
+                        setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
+                        setNewMessage(''); // Очищаем поле ввода
+                    } else {
+                        const newMsg = {
+                            id: messages.length + 1,
+                            body: response.data.body,
+                            time: `${hours}:${minutes}`,
+                            isBot: true,
+                        };
 
-                setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
-                setNewMessage(''); // Очищаем поле ввода
+                        setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
+                        setNewMessage(''); // Очищаем поле ввода
+                    }
             } else {
                 throw new Error('Ошибка при отправке сообщения');
             }
