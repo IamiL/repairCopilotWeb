@@ -150,7 +150,7 @@ const Chat = () => {
                         {messages.map((message, index) => (
                             <div
                                 key={index}
-                                className={`message ${message.isBot ? 'bot-message' : 'user-message'}`}
+                                className={`message ${message.isBot ? 'bot-message' : 'user-message'} ${message.isBot ? 'other-message' : 'own-message'}`}
                             >
                                 <div className="message-content">
                                     <p>{message.body}</p>
