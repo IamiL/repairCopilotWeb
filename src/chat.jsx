@@ -111,10 +111,10 @@ const Chat = () => {
         };
 
         setMessages((prevMessages) => [...prevMessages, newRespMsg]); // Добавляем сообщение в конец массива
+        setNewMessage(''); // Очищаем поле ввода
 
         try {
             const response = await axios.post('/api/message', { message: newMessage });
-            setNewMessage(''); // Очищаем поле ввода
             if (response.status === 200) {
                 console.log('запрос на отправку сообщения успешен, ответ response.data.body: ', response.data.body)
                     if (response.data.body.length < 2) {
@@ -126,7 +126,6 @@ const Chat = () => {
                         }
 
                         setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
-                        setNewMessage(''); // Очищаем поле ввода
                     } else {
                         setMessages((prevMessages) => {
                             const updatedMessages = [...prevMessages];
@@ -160,7 +159,7 @@ const Chat = () => {
                 // Отображаем ошибку и кнопку создания нового чата
                 <div className="error-container">
                     {/*<p>{error}</p>*/}
-                    <button onClick={handleNewChat} className="retry-button">
+                    <button onClick={handleNewChat} className="retry-button new-chat-button">
                         Новый чат
                     </button>
                 </div>
