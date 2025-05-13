@@ -209,13 +209,6 @@ const Chat = () => {
                 </div>
             ) : (
                 <>
-                    {messages.length > 0 && !isChatEnded && (
-                        <div className="end-chat-button-container">
-                            <button className="end-chat-button" onClick={handleEndChat}>
-                                Завершить чат
-                            </button>
-                        </div>
-                    )}
                     {/* Отображение сообщений */}
                     <div className="messages-container">
                         {messages.map((message, index) => (
@@ -239,7 +232,13 @@ const Chat = () => {
                             </button>
                         </div>
                     )}
-
+                    {messages.length > 0 && !isChatEnded && (
+                        <div className="end-chat-button-container">
+                            <button className="end-chat-button" onClick={handleEndChat}>
+                                Завершить чат
+                            </button>
+                        </div>
+                    )}
                     {/* Поле ввода сообщения */}
                     <form className="message-input-container" onSubmit={handleSendMessage}>
                         <input
