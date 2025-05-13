@@ -277,3 +277,57 @@ body {
     background-color: #cccccc; /* Цвет отключённой кнопки */
     cursor: not-allowed; /* Курсор при отключении */
 }
+/* Основной стиль кнопки */
+.send-button {
+    position: relative;
+    background-color: #4CAF50; /* Обычный цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кнопка при наведении */
+.send-button:hover {
+    background-color: #45a049;
+}
+
+/* Кнопка в состоянии disabled */
+.send-button.disabled {
+    background-color: #cccccc; /* Серый фон */
+    color: #666666; /* Серый текст */
+    cursor: not-allowed; /* Отключённый курсор */
+}
+
+/* Анимация загрузки */
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #cccccc; /* Базовый цвет границы */
+    border-top: 3px solid #4CAF50; /* Цвет вращения */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Анимация вращения */
+}
+
+/* Ключевые кадры анимации */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Стиль иконки отправки */
+.send-icon {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}

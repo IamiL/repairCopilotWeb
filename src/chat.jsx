@@ -114,7 +114,7 @@ const Chat = () => {
 
         try {
             const response = await axios.post('/api/message', { message: newMessage });
-
+            setNewMessage(''); // Очищаем поле ввода
             if (response.status === 200) {
                 console.log('запрос на отправку сообщения успешен, ответ response.data.body: ', response.data.body)
                     if (response.data.body.length < 2) {
@@ -138,8 +138,6 @@ const Chat = () => {
                             }
                             return updatedMessages; // Возвращаем обновлённый массив
                         });
-
-                        setNewMessage(''); // Очищаем поле ввода
                     }
             } else {
                 throw new Error('Ошибка при отправке сообщения');
@@ -194,10 +192,20 @@ const Chat = () => {
                             placeholder="Введите сообщение..."
                             disabled={isSending}
                         />
-                        <button type="submit" className="send-button" disabled={isSending}>
-                            <svg className="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                            </svg>
+                        <button
+                            type="button"
+                            className={`send-button ${isSending ? 'disabled' : ''}`}
+                            disabled={isSending}
+                        >
+                            {isSending ? (
+                                // Анимация загрузки
+                                <span className="loading-spinner"></span>
+                            ) : (
+                                // Иконка отправки
+                                <svg className="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                                </svg>
+                            )}
                         </button>
                     </form>
                 </>
