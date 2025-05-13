@@ -4,7 +4,6 @@ import './Chat.css';
 
 const Chat = () => {
     const [messages, setMessages] = useState([]); // Хранение сообщений
-    const [inputMessage, setInputMessage] = useState(''); // Текст сообщения
     const [isChatEnded, setIsChatEnded] = useState(false); // Флаг завершения чата
 
     const [newMessage, setNewMessage] = useState(''); // Для ввода сообщения
@@ -15,8 +14,17 @@ const Chat = () => {
 
     // Прокрутка чата к последнему сообщению
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
+
+    useEffect(() => {
+        if (!isChatEnded) {
+            scrollToBottom();
+        }
+    }, [messages, isChatEnded]);
+
 
     // Загрузка сообщений при первом рендере
     useEffect(() => {
@@ -121,6 +129,7 @@ const Chat = () => {
         }
         setMessages([]);
         setIsChatEnded(false);
+        setIsSending(false); // Блокируем кнопку отправки
 
         try {
             setIsLoading(true); // Отображаем индикатор загрузки
