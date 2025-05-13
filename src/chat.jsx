@@ -248,7 +248,7 @@ const Chat = () => {
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
                             placeholder="Введите сообщение..."
-                            disabled={isSending}
+                            disabled={isSending || isChatEnded}
                         />
                         <button type="submit" className="send-button" disabled={isSending}>
                             <svg className="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
