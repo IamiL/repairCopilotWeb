@@ -258,76 +258,37 @@ body {
     background-color: #357a4a;
 }
 
-.retry-button {
-    background-color: #4CAF50; /* Цвет фона кнопки */
-    color: white; /* Цвет текста */
-    padding: 10px 20px; /* Внутренние отступы */
-    border: none; /* Убираем границу */
-    border-radius: 5px; /* Скругление углов */
-    font-size: 16px; /* Размер текста */
-    cursor: pointer; /* Курсор в виде руки */
-    transition: background-color 0.3s; /* Анимация смены фона */
-}
-
-.retry-button:hover {
-    background-color: #45a049; /* Цвет кнопки при наведении */
-}
-
-.retry-button:disabled {
-    background-color: #cccccc; /* Цвет отключённой кнопки */
-    cursor: not-allowed; /* Курсор при отключении */
-}
-/* Основной стиль кнопки */
-.send-button {
+/* Стиль для кнопки в состоянии `disabled` */
+.send-button:disabled {
+    background-color: #d3d3d3; /* Серый фон */
+    border: 2px solid #cccccc; /* Граница */
+    color: #ffffff; /* Цвет текста */
+    cursor: not-allowed; /* Указывает, что кнопка недоступна */
     position: relative;
-    background-color: #4CAF50; /* Обычный цвет кнопки */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    opacity: 0.8;
 }
 
-/* Кнопка при наведении */
-.send-button:hover {
-    background-color: #45a049;
-}
-
-/* Кнопка в состоянии disabled */
-.send-button.disabled {
-    background-color: #cccccc; /* Серый фон */
-    color: #666666; /* Серый текст */
-    cursor: not-allowed; /* Отключённый курсор */
-}
-
-/* Анимация загрузки */
-.loading-spinner {
-    width: 20px;
-    height: 20px;
-    border: 3px solid #cccccc; /* Базовый цвет границы */
-    border-top: 3px solid #4CAF50; /* Цвет вращения */
+/* Анимация крутящегося индикатора загрузки */
+.send-button:disabled::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Выравнивание по центру кнопки */
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px; /* Центрирование */
+    border: 2px solid transparent;
+    border-top: 2px solid var(--primary-color); /* Верхний цвет */
     border-radius: 50%;
     animation: spin 1s linear infinite; /* Анимация вращения */
 }
 
-/* Ключевые кадры анимации */
+/* Анимация вращения */
 @keyframes spin {
-    0% {
+    from {
         transform: rotate(0deg);
     }
-    100% {
+    to {
         transform: rotate(360deg);
     }
-}
-
-/* Стиль иконки отправки */
-.send-icon {
-    width: 16px;
-    height: 16px;
-    fill: white;
 }

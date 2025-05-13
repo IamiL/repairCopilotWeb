@@ -192,20 +192,10 @@ const Chat = () => {
                             placeholder="Введите сообщение..."
                             disabled={isSending}
                         />
-                        <button
-                            type="button"
-                            className={`send-button ${isSending ? 'disabled' : ''}`}
-                            disabled={isSending}
-                        >
-                            {isSending ? (
-                                // Анимация загрузки
-                                <span className="loading-spinner"></span>
-                            ) : (
-                                // Иконка отправки
-                                <svg className="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                                </svg>
-                            )}
+                        <button type="submit" className="send-button" disabled={isSending}>
+                            <svg className="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                            </svg>
                         </button>
                     </form>
                 </>
