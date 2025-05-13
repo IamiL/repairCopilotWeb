@@ -77,7 +77,7 @@ const Chat = () => {
             // DELETE запрос
             const response = await axios.delete('/api/chat');
             if (response.status === 200) {
-                const botReply = response.data.message || 'Чат завершён.';
+                const botReply = response.data.body || 'Чат завершён.';
                 setMessages((prevMessages) => [
                     ...prevMessages,
                     { id: Date.now(), body: botReply, isBot: true },
