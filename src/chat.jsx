@@ -28,7 +28,19 @@ const Chat = () => {
 
                     // Проверка, что пришли сообщения в виде массива
                     if (Array.isArray(data)) {
-                        setMessages(data); // Сохраняем сообщения в state
+                        const formattedMessages = data.map((message) => {
+                            const originalDate = new Date(message.time); // Парсим дату
+                            const hours = originalDate.getHours().toString().padStart(2, '0'); // Часы
+                            const minutes = originalDate.getMinutes().toString().padStart(2, '0'); // Минуты
+
+                            return {
+                                ...message,
+                                time: `${hours}:${minutes}`, // Добавляем поле времени
+                            };
+                        });
+
+                        setMessages(formattedMessages);
+                        // Сохраняем сообщения в state
                     } else {
                         throw new Error('Ответ сервера не является массивом');
                     }
