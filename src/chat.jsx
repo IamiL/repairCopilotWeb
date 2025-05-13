@@ -73,7 +73,7 @@ const Chat = () => {
         setMessages([...messages, { id: Date.now(), body: 'Завершить диалог', isBot: false }]);
         setIsChatEnded(true);
 
-
+        setIsSending(true); // Блокируем кнопку отправки
         setMessages((prevMessages) => [
             ...prevMessages,
             { id: Date.now(), body: "Составляю сводку диалога...", isBot: true },
