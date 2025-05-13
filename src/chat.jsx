@@ -100,7 +100,7 @@ const Chat = () => {
                 });
                 const container = document.getElementById('message-input-container');
                 if (container) {
-                    container.remove();
+                    container.style.display = 'none';
                 } else {
                     console.warn("Элемент с id 'message-input-container' не найден.");
                 }
@@ -113,6 +113,12 @@ const Chat = () => {
 
     // Обработка события "Новый чат"
     const handleNewChat = async () => {
+        const container = document.getElementById('message-input-container');
+        if (container) {
+            container.style.display = 'unset';
+        } else {
+            console.warn("Элемент с id 'message-input-container' не найден.");
+        }
         setMessages([]);
         setIsChatEnded(false);
         setInputMessage('');
