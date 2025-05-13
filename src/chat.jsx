@@ -268,7 +268,7 @@ const Chat = () => {
                             </button>
                         </div>
                     )}
-                    {messages.length > 0 && !isChatEnded && (
+                    {messages.length > 2 && !isChatEnded && (
                         <div className="end-chat-button-container">
                             <button className="end-chat-button" onClick={handleEndChat}>
                                 Завершить чат
