@@ -23,7 +23,8 @@ const Chat = () => {
                 const response = await axios.get('/api/message'); // GET-запрос к серверу
 
                 if (response.status === 200) {
-                    const data = response.data;
+                    console.log('пришёл ответ от сервера с сообщениями: ', response.data.messages)
+                    const data = response.data.messages;
 
                     // Проверка, что пришли сообщения в виде массива
                     if (Array.isArray(data)) {
@@ -36,6 +37,7 @@ const Chat = () => {
                 }
             } catch (err) {
                 setError('Не удалось загрузить сообщения. Попробуйте снова.');
+                console.error(err);
             } finally {
                 setIsLoading(false); // Выключаем индикатор загрузки
             }
