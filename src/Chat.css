@@ -38,7 +38,7 @@ body {
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px); /* Учитываем высоту верхнего меню */
+    height: calc(100svh - 60px); /* Учитываем высоту верхнего меню */
     width: 100%; /* Занимает всю ширину экрана на мобильных */
     margin: 0; /* На мобильной версии — без отступов */
     background-color: var(--bg-color);
@@ -216,7 +216,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100svh;
 }
 
 .spinner {
@@ -240,7 +240,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100svh;
 }
 
 .new-chat-button {
