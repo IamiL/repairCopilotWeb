@@ -107,6 +107,11 @@ body {
     line-height: 1.4; /* Межстрочный интервал для улучшения читаемости */
 }
 
+.message-content u {
+    margin-top: 7px;
+    display: block;
+}
+
 /* Уменьшение шрифта для длинного текста */
 .message-content pre.long-text {
     font-size: 12px; /* Уменьшаем шрифт для длинного текста */
