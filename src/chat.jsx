@@ -90,19 +90,30 @@ const Chat = () => {
         setIsSending(true); // Блокируем кнопку отправки
         setError(null); // Очищаем ошибку
 
+        const currentTime = new Date();
+        const hours = currentTime.getHours().toString().padStart(2, '0');
+        const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+
+        const newMsg = {
+            id: messages.length + 1,
+            body: newMessage,
+            time: `${hours}:${minutes}`,
+            isBot: false,
+        };
+
+        setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
+
         try {
             const response = await axios.post('/api/message', { message: newMessage });
 
             if (response.status === 200) {
-                const currentTime = new Date();
-                const hours = currentTime.getHours().toString().padStart(2, '0');
-                const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                console.log('запрос на отправку сообщения успешен, ответ response.data.body: ', response.data.body)
 
                 const newMsg = {
                     id: messages.length + 1,
-                    body: newMessage,
+                    body: response.data.body,
                     time: `${hours}:${minutes}`,
-                    isBot: false,
+                    isBot: true,
                 };
 
                 setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
@@ -161,7 +172,9 @@ const Chat = () => {
                             disabled={isSending}
                         />
                         <button type="submit" className="send-button" disabled={isSending}>
-                            Отправить
+                            <svg className="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                            </svg>
                         </button>
                     </form>
                 </>
