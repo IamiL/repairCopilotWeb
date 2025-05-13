@@ -70,7 +70,7 @@ const Chat = () => {
 
     const handleEndChat = async () => {
         // Блокируем ввод и кнопку для отправки сообщений
-        setMessages([...messages, { id: Date.now(), text: 'Завершить диалог', sender: 'user' }]);
+        setMessages([...messages, { id: Date.now(), body: 'Завершить диалог', isBot: false }]);
         setIsChatEnded(true);
 
         try {
@@ -80,7 +80,7 @@ const Chat = () => {
                 const botReply = response.data.message || 'Чат завершён.';
                 setMessages((prevMessages) => [
                     ...prevMessages,
-                    { id: Date.now(), text: botReply, sender: 'bot' },
+                    { id: Date.now(), body: botReply, isBot: true },
                 ]);
             }
         } catch (error) {
