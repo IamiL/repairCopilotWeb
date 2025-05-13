@@ -33,11 +33,13 @@ const Chat = () => {
                         throw new Error('Ответ сервера не является массивом');
                     }
                 } else {
+                    console.log('выбрасываем ошибку статус не 200')
                     throw new Error(`Ошибка загрузки (код ${response.status})`);
                 }
             } catch (err) {
                 setError('Не удалось загрузить сообщения. Попробуйте снова.');
                 console.error(err);
+                console.log('выбрасываем ошибку - ', err.message, err)
             } finally {
                 setIsLoading(false); // Выключаем индикатор загрузки
             }
