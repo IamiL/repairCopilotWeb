@@ -257,3 +257,23 @@ body {
 .new-chat-button:hover {
     background-color: #357a4a;
 }
+
+.retry-button {
+    background-color: #4CAF50; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    padding: 10px 20px; /* Внутренние отступы */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скругление углов */
+    font-size: 16px; /* Размер текста */
+    cursor: pointer; /* Курсор в виде руки */
+    transition: background-color 0.3s; /* Анимация смены фона */
+}
+
+.retry-button:hover {
+    background-color: #45a049; /* Цвет кнопки при наведении */
+}
+
+.retry-button:disabled {
+    background-color: #cccccc; /* Цвет отключённой кнопки */
+    cursor: not-allowed; /* Курсор при отключении */
+}

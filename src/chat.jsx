@@ -103,6 +103,15 @@ const Chat = () => {
 
         setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
 
+        const newRespMsg = {
+            id: messages.length + 1,
+            body: "Обработка",
+            time: `${hours}:${minutes}`,
+            isBot: true,
+        };
+
+        setMessages((prevMessages) => [...prevMessages, newRespMsg]); // Добавляем сообщение в конец массива
+
         try {
             const response = await axios.post('/api/message', { message: newMessage });
 
@@ -119,14 +128,17 @@ const Chat = () => {
                         setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
                         setNewMessage(''); // Очищаем поле ввода
                     } else {
-                        const newMsg = {
-                            id: messages.length + 1,
-                            body: response.data.body,
-                            time: `${hours}:${minutes}`,
-                            isBot: true,
-                        };
+                        setMessages((prevMessages) => {
+                            const updatedMessages = [...prevMessages];
+                            if (updatedMessages.length > 0) {
+                                updatedMessages[updatedMessages.length - 1] = {
+                                    ...updatedMessages[updatedMessages.length - 1], // Сохраняем все существующие поля последнего сообщения
+                                    body: response.data.body, // Обновляем текст последнего сообщения
+                                };
+                            }
+                            return updatedMessages; // Возвращаем обновлённый массив
+                        });
 
-                        setMessages((prevMessages) => [...prevMessages, newMsg]); // Добавляем сообщение в конец массива
                         setNewMessage(''); // Очищаем поле ввода
                     }
             } else {
@@ -149,7 +161,7 @@ const Chat = () => {
             ) : error ? (
                 // Отображаем ошибку и кнопку создания нового чата
                 <div className="error-container">
-                    <p>{error}</p>
+                    {/*<p>{error}</p>*/}
                     <button onClick={handleNewChat} className="retry-button">
                         Новый чат
                     </button>
