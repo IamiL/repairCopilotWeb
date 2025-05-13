@@ -153,7 +153,7 @@ const Chat = () => {
                                 className={`message ${message.isBot ? 'bot-message' : 'user-message'} ${message.isBot ? 'other-message' : 'own-message'}`}
                             >
                                 <div className="message-content">
-                                    <p>{message.body}</p>
+                                    <div dangerouslySetInnerHTML={{ __html: message.body }} />
                                     <span className="timestamp">{message.time}</span>
                                 </div>
                             </div>
