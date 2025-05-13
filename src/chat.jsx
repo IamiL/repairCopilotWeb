@@ -73,15 +73,31 @@ const Chat = () => {
         setMessages([...messages, { id: Date.now(), body: 'Завершить диалог', isBot: false }]);
         setIsChatEnded(true);
 
+
+        setMessages((prevMessages) => [
+            ...prevMessages,
+            { id: Date.now(), body: "Составляю сводку диалога...", isBot: true },
+        ]);
+
         try {
             // DELETE запрос
             const response = await axios.delete('/api/chat');
             if (response.status === 200) {
                 const botReply = response.data.body || 'Чат завершён.';
-                setMessages((prevMessages) => [
-                    ...prevMessages,
-                    { id: Date.now(), body: botReply, isBot: true },
-                ]);
+                // setMessages((prevMessages) => [
+                //     ...prevMessages,
+                //     { id: Date.now(), body: botReply, isBot: true },
+                // ]);
+                setMessages((prevMessages) => {
+                    const updatedMessages = [...prevMessages];
+                    if (updatedMessages.length > 0) {
+                        updatedMessages[updatedMessages.length - 1] = {
+                            ...updatedMessages[updatedMessages.length - 1], // Сохраняем все существующие поля последнего сообщения
+                            body: botReply, // Обновляем текст последнего сообщения
+                        };
+                    }
+                    return updatedMessages; // Возвращаем обновлённый массив
+                });
                 const container = document.getElementById('message-input-container');
                 if (container) {
                     container.parentNode.removeChild(container);
