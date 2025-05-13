@@ -121,7 +121,6 @@ const Chat = () => {
         }
         setMessages([]);
         setIsChatEnded(false);
-        setInputMessage('');
 
         try {
             setIsLoading(true); // Отображаем индикатор загрузки
