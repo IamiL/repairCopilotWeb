@@ -129,7 +129,6 @@ const Chat = () => {
         }
         setMessages([]);
         setIsChatEnded(false);
-        setIsSending(false); // Блокируем кнопку отправки
 
         try {
             setIsLoading(true); // Отображаем индикатор загрузки
@@ -152,6 +151,7 @@ const Chat = () => {
                 };
 
                 setMessages([firstMessage]); // Заменяем текущие сообщения на новое первое сообщение
+                setIsSending(false);
             } else {
                 throw new Error(`Ошибка создания чата: код ${response.status}`);
             }
