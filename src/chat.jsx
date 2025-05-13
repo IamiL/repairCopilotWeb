@@ -79,13 +79,6 @@ const Chat = () => {
             { id: Date.now(), body: "Составляю сводку диалога...", isBot: true },
         ]);
 
-        const container = document.getElementById('message-input-container');
-        if (container) {
-            container.parentNode.removeChild(container);
-        } else {
-            console.warn("Элемент с id 'message-input-container' не найден.");
-        }
-
         try {
             // DELETE запрос
             const response = await axios.delete('/api/chat');
@@ -105,6 +98,12 @@ const Chat = () => {
                     }
                     return updatedMessages; // Возвращаем обновлённый массив
                 });
+                const container = document.getElementById('message-input-container');
+                if (container) {
+                    container.remove();
+                } else {
+                    console.warn("Элемент с id 'message-input-container' не найден.");
+                }
             }
         } catch (error) {
             console.error('Ошибка при завершении чата:', error);
