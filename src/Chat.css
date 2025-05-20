@@ -113,12 +113,12 @@ body {
     margin-block: .25rem;
     border-radius: .25rem;
     position: relative;
-    margin: .25rem .25rem 15px;
+    /*margin: .25rem .25rem 15px;*/
 }
 
-.message-content pre {
-    margin-bottom: 15px !important;
-}
+/*.message-content pre {*/
+/*    margin-bottom: 15px !important;*/
+/*}*/
 
 .message-content pre::before {
         content: "";
@@ -132,16 +132,16 @@ body {
 }
 
 .message-content u {
-    margin-top: 7px;
-    display: block;
+    /*margin-top: 7px;*/
+    /*display: block;*/
 }
 
 .message-content b{
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
 }
 
 .message-content #text, .message-content b, .message-content i  {
-    display: block;
+    /*display: block;*/
 }
 
 /* Уменьшение шрифта для длинного текста */
