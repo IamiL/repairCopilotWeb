@@ -144,6 +144,10 @@ body {
     /*display: block;*/
 }
 
+.spacer-div{
+    height: 0.7rem;
+}
+
 /* Уменьшение шрифта для длинного текста */
 .message-content pre.long-text {
     font-size: 12px; /* Уменьшаем шрифт для длинного текста */
