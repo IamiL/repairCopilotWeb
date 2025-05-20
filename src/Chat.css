@@ -106,6 +106,7 @@ body {
     font-size: 14px; /* Основной размер шрифта */
     line-height: 1.4; /* Межстрочный интервал для улучшения читаемости */
     padding-left: 5%;
+    padding-right: 5%;
     background-color: rgb(0, 0, 0, 0.502);
     /*color: var(--color-text);*/
     margin: 0;
@@ -113,7 +114,7 @@ body {
     margin-block: .25rem;
     border-radius: .25rem;
     position: relative;
-    overflow: hidden;
+    margin-bottom: 15px;
 }
 
 .message-content pre::before {
@@ -130,6 +131,10 @@ body {
 .message-content u {
     margin-top: 7px;
     display: block;
+}
+
+.message-content b{
+    margin-bottom: 10px;
 }
 
 .message-content #text, .message-content b, .message-content i  {
