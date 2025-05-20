@@ -112,7 +112,7 @@ body {
     display: block;
 }
 
-.message-content #text {
+.message-content #text, .message-content b, .message-content i  {
     display: block;
 }
 
