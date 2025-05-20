@@ -109,12 +109,11 @@ body {
     padding-right: 5%;
     background-color: rgb(0, 0, 0, 0.502);
     /*color: var(--color-text);*/
-    margin: 0;
     padding-block: .1875rem;
     margin-block: .25rem;
     border-radius: .25rem;
     position: relative;
-    margin-bottom: 15px;
+    margin: 0 0 15px;
 }
 
 .message-content pre::before {
