@@ -105,6 +105,26 @@ body {
     overflow: hidden; /* Убираем возможность переполнения */
     font-size: 14px; /* Основной размер шрифта */
     line-height: 1.4; /* Межстрочный интервал для улучшения читаемости */
+    padding-left: 5%;
+    background-color: rgb(0, 0, 0, 0.502);
+    /*color: var(--color-text);*/
+    margin: 0;
+    padding-block: .1875rem;
+    margin-block: .25rem;
+    border-radius: .25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.message-content pre::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        inset-inline-start: 0;
+        width: .1875rem;
+        background: #f68136;
 }
 
 .message-content u {
