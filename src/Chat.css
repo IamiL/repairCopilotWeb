@@ -116,6 +116,10 @@ body {
     margin: 0 0 15px;
 }
 
+.message-content pre {
+    margin-bottom: 15px !important;
+}
+
 .message-content pre::before {
         content: "";
         display: block;
