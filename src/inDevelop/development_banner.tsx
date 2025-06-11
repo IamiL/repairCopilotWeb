@@ -96,7 +96,7 @@ export const AppDevelopment = () => {
         
         {/* Заголовок как на сайте */}
         <div className="site-header">
-          <h1>Второй Пилот</h1>
+          <h1>Поиск корневой причины</h1>
         </div>
         
         {/* Баннер разработки */}
