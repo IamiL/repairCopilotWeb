@@ -1,0 +1,233 @@
+
+/* Основные стили для приложения */
+.app {
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app.light {
+    background-color: #f3f4f6;
+    color: #374151;
+}
+
+.app.dark {
+    background-color: #111827;
+    color: #d1d5db;
+}
+
+.demo-container {
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+/* Переключатель темы */
+.theme-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.theme-toggle {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.app.light .theme-toggle {
+    background-color: #1f2937;
+    color: white;
+}
+
+.app.light .theme-toggle:hover {
+    background-color: #374151;
+}
+
+.app.dark .theme-toggle {
+    background-color: #eab308;
+    color: #1f2937;
+}
+
+.app.dark .theme-toggle:hover {
+    background-color: #facc15;
+}
+
+/* Заголовок сайта */
+.site-header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.site-header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.app.light .site-header h1 {
+    color: #1f2937;
+}
+
+.app.dark .site-header h1 {
+    color: white;
+}
+
+/* Основной баннер разработки */
+.development-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px dashed;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.development-banner.light {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+    color: #6b7280;
+}
+
+.development-banner.dark {
+    background-color: rgba(31, 41, 55, 0.5);
+    border-color: #4b5563;
+    color: #d1d5db;
+}
+
+/* Контейнер логотипа */
+.logo-container {
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+.logo-svg {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Основной заголовок */
+.main-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.development-banner.light .main-title {
+    color: #1f2937;
+}
+
+.development-banner.dark .main-title {
+    color: white;
+}
+
+/* Подзаголовок */
+.subtitle {
+    font-size: 0.875rem;
+    text-align: center;
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+}
+
+.development-banner.light .subtitle {
+    color: #6b7280;
+}
+
+.development-banner.dark .subtitle {
+    color: #9ca3af;
+}
+
+/* Индикатор загрузки */
+.loading-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.development-banner.light .dot {
+    background-color: #10b981;
+}
+
+.development-banner.dark .dot {
+    background-color: #34d399;
+}
+
+.dot-1 {
+    animation-delay: 0ms;
+}
+
+.dot-2 {
+    animation-delay: 150ms;
+}
+
+.dot-3 {
+    animation-delay: 300ms;
+}
+
+/* Кнопка "Новый чат" */
+.new-chat-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: 1px solid;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+}
+
+.app.light .new-chat-button {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    border-color: #d1d5db;
+}
+
+.app.dark .new-chat-button {
+    background-color: #374151;
+    color: #6b7280;
+    border-color: #4b5563;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .app {
+        padding: 1rem;
+    }
+
+    .development-banner {
+        padding: 1rem;
+    }
+
+    .site-header h1 {
+        font-size: 1.25rem;
+    }
+}
