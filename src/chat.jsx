@@ -239,7 +239,7 @@ const Chat = () => {
                 // Отображаем ошибку и кнопку создания нового чата
                 <div className="error-container">
                     {/*<p>{error}</p>*/}
-                    <button onClick={handleNewChat} className="retry-button new-chat-button">
+                    <button onClick={handleNewChat} className="retry-button new-chat-button" disabled={true}>
                         Новый чат
                     </button>
                 </div>
