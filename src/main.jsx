@@ -4,5 +4,5 @@ import App from './App.jsx'
 import AppDevelopment from "./inDevelop/development_banner.tsx";
 
 createRoot(document.getElementById('root')).render(
-    <AppDevelopment />,
+    <App />,
 )
