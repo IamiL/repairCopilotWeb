@@ -182,7 +182,7 @@
     border-radius: 0.5rem;
     font-weight: 500;
     border: 1px solid;
-    cursor: not-allowed;
+    /*cursor: not-allowed;*/
     transition: all 0.3s ease;
 }
 
